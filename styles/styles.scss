@@ -1,0 +1,243 @@
+//Definición de colores
+$verde: #009999;
+$morado: #9a2d9d;
+$texto: #333;
+$mobile: 330px;
+$tablet: 768px;
+$desktop1: 1366px;
+$desktop2: 1400px;
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+
+//Fuentes
+@font-face {
+    font-family: 'Lato-Black';
+    src: url(../resources/fonts/Lato-Black.ttf) format('truetype');
+}
+
+@font-face {    
+    font-family: 'Lato-Light';
+    src: url(../resources/fonts/Lato-Light.ttf) format('truetype');
+}
+
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+
+//Mixins
+@mixin basic-flex {
+    display:flex;
+}
+
+@mixin img-resize-catalog {
+    width: 10em;
+    height: auto;
+}
+
+@mixin img-resize-aside {
+    width: 7em;
+    height: auto;
+}
+
+@mixin hover-morado{
+    color: $morado;
+    font-family: 'Lato-Black';
+}
+
+@mixin hover-verde {
+    color: $verde;
+    font-family: 'Lato-Black';    
+}
+
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+
+//Generales
+*{
+    margin: 0;
+    padding: 0 ;
+}
+
+body{
+    font-family: 'Lato-Light';
+    color: $texto;
+    padding: 0 8em;
+}
+
+.main{
+    @include basic-flex;
+}
+
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+
+//Header
+.logo-container{
+    @include basic-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em 0 1em;
+    .logo-empresa{            
+        width: auto;
+        height: 5.5em;
+    }
+}
+
+.my-nav{
+    @include basic-flex;
+    justify-content: flex-end;
+    flex-wrap: wrap-reverse;
+    list-style-type: none;
+    margin:0;
+    padding:0;
+
+    li{
+        border-right: 1px solid $verde;
+        padding: 0;
+        margin: 0;
+
+        &:last-child{
+            border-right: none;
+        }
+        a{
+            color:$texto;
+            text-decoration: none;
+            font-family: 'Lato-Light';
+            padding: .2em 1em;
+
+            &:hover{
+                @include hover-verde;
+            }
+        }
+    }
+}
+
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+
+
+//Main Catalog
+
+
+.layout{
+    @include basic-flex;
+
+}
+.main-footer{
+    @include basic-flex;
+    flex-wrap: wrap;
+}
+.catalog{
+    @include basic-flex;
+    flex-wrap: wrap;
+    padding: 2em 0;
+}
+
+.product-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 20em;
+    max-height: 20em;
+    align-items: center;
+    margin: 0 .5em;
+    padding: 0 .5em .2em;
+    border: 1em solid $verde;
+    border-radius: 10%;
+    outline: 2px dotted white;
+    outline-offset: -.8em;
+
+    &:hover{        
+        @include hover-morado;
+    }
+    .product-img{
+        @include img-resize-catalog;
+        margin: 0 1em .2em;  
+    }
+    .product-description{
+        align-self: center;
+        text-align: center;
+        border-top: .15em dotted $verde;
+        padding-top: 1em;
+        padding-bottom: .1em;
+    }
+
+}
+
+
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+
+//Aside
+
+//Desaparecer para móviles
+@media only screen and (min-width:300px){
+    .aside{
+        display:none;
+    }
+}
+
+//Aparecer para compu grandota
+@media only screen and (min-width:1366px){
+    .aside{
+        @include basic-flex;
+        padding-top: 2em;
+    }
+    
+    .aside-container{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 25em;
+        flex-direction: column;
+    }
+    
+    .product-aside-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 18em;
+        max-height: 15em;
+        align-items: center;
+        margin: .2em;
+        padding: 0 1.5em .2em;
+        border: .8em solid $morado;
+        border-radius: 10%;
+        &:hover{        
+            @include hover-verde;
+        }
+        .product-img-aside{
+            @include img-resize-aside;
+        }
+        p{
+            align-self: center;
+            text-align: center;
+            font-size: .75em;
+        }
+    
+    }
+
+}
+
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+
+//Footer
+
+.my-footer{
+    @include basic-flex;
+    align-items: flex-end;
+    align-self: flex-end;
+    justify-content: flex-end;
+}
+
+.logo-svg{
+    background-color: $morado;
+    width: 3em;
+    border-radius: 50%;
+}

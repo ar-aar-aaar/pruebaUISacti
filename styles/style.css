@@ -1,0 +1,186 @@
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+@font-face {
+  font-family: "Lato-Black";
+  src: url(../resources/fonts/Lato-Black.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Lato-Light";
+  src: url(../resources/fonts/Lato-Light.ttf) format("truetype");
+}
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Lato-Light";
+  color: #333;
+  padding: 0 8em;
+}
+
+.main {
+  display: flex;
+}
+
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em 0 1em;
+}
+.logo-container .logo-empresa {
+  width: auto;
+  height: 5.5em;
+}
+
+.my-nav {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap-reverse;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.my-nav li {
+  border-right: 1px solid #009999;
+  padding: 0;
+  margin: 0;
+}
+.my-nav li:last-child {
+  border-right: none;
+}
+.my-nav li a {
+  color: #333;
+  text-decoration: none;
+  font-family: "Lato-Light";
+  padding: 0.2em 1em;
+}
+.my-nav li a:hover {
+  color: #009999;
+  font-family: "Lato-Black";
+}
+
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+.layout {
+  display: flex;
+}
+
+.main-footer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.catalog {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2em 0;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 20em;
+  max-height: 20em;
+  align-items: center;
+  margin: 0 0.5em;
+  padding: 0 0.5em 0.2em;
+  border: 1em solid #009999;
+  border-radius: 10%;
+  outline: 2px dotted white;
+  outline-offset: -0.8em;
+}
+.product-container:hover {
+  color: #9a2d9d;
+  font-family: "Lato-Black";
+}
+.product-container .product-img {
+  width: 10em;
+  height: auto;
+  margin: 0 1em 0.2em;
+}
+.product-container .product-description {
+  align-self: center;
+  text-align: center;
+  border-top: 0.15em dotted #009999;
+  padding-top: 1em;
+  padding-bottom: 0.1em;
+}
+
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+@media only screen and (min-width: 300px) {
+  .aside {
+    display: none;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .aside {
+    display: flex;
+    padding-top: 2em;
+  }
+
+  .aside-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 25em;
+    flex-direction: column;
+  }
+
+  .product-aside-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 18em;
+    max-height: 15em;
+    align-items: center;
+    margin: 0.2em;
+    padding: 0 1.5em 0.2em;
+    border: 0.8em solid #9a2d9d;
+    border-radius: 10%;
+  }
+  .product-aside-container:hover {
+    color: #009999;
+    font-family: "Lato-Black";
+  }
+  .product-aside-container .product-img-aside {
+    width: 7em;
+    height: auto;
+  }
+  .product-aside-container p {
+    align-self: center;
+    text-align: center;
+    font-size: 0.75em;
+  }
+}
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+.my-footer {
+  display: flex;
+  align-items: flex-end;
+  align-self: flex-end;
+  justify-content: flex-end;
+}
+
+.logo-svg {
+  background-color: #9a2d9d;
+  width: 3em;
+  border-radius: 50%;
+}
+
+/*# sourceMappingURL=style.css.map */
