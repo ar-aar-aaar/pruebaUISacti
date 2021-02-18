@@ -20,16 +20,21 @@
   padding: 0;
 }
 
-@media only screen and (min-width: 300px) and (max-width: 768px) {
+@media only screen and (min-width: 300px) and (max-width: 1023px) {
   body {
     font-family: "Lato-Light";
     color: #333;
     padding: 0;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1366px) {
+@media only screen and (min-width: 1024px) and (max-width: 1399px) {
   body {
     padding: 0 8em;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  body {
+    padding: 0 12em;
   }
 }
 .main {
@@ -39,7 +44,7 @@
 /**********************************************************************************************************/
 /**********************************************************************************************************/
 /**********************************************************************************************************/
-@media only screen and (min-width: 300px) and (max-width: 768px) {
+@media only screen and (min-width: 300px) and (max-width: 766px) {
   header {
     max-width: 95%;
     padding: 0;
@@ -59,6 +64,48 @@
     display: flex;
     justify-content: flex-end;
     flex-wrap: wrap-reverse;
+    list-style-type: none;
+    margin: 1em 0;
+    padding: 0;
+  }
+  header .my-nav li {
+    border-right: 1px solid #009999;
+    padding: 0 0.2em;
+    margin: 0.8em 0;
+  }
+  header .my-nav li:last-child {
+    border-right: none;
+  }
+  header .my-nav li a {
+    color: #333;
+    text-decoration: none;
+    font-family: "Lato-Light";
+    padding: 0.2em 0.2em;
+  }
+  header .my-nav li a:hover {
+    color: #009999;
+    font-family: "Lato-Black";
+  }
+}
+@media only screen and (min-width: 767px) and (max-width: 1023px) {
+  header {
+    max-width: 95%;
+    padding: 0;
+    margin: 3em auto 0;
+    align-items: center;
+  }
+  header .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  header .logo-container .logo-empresa {
+    width: auto;
+    max-height: 7em;
+  }
+  header .my-nav {
+    display: flex;
+    justify-content: flex-end;
     list-style-type: none;
     margin: 1em 0;
     padding: 0;
@@ -127,7 +174,7 @@
 /**********************************************************************************************************/
 /**********************************************************************************************************/
 /**********************************************************************************************************/
-@media only screen and (min-width: 300px) and (max-width: 768px) {
+@media only screen and (min-width: 300px) and (max-width: 767px) {
   .layout {
     display: flex;
   }
@@ -176,6 +223,73 @@
   }
   .product-container .product-description {
     align-self: center;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .layout {
+    display: flex;
+  }
+
+  .main-footer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .catalog {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 95%;
+    justify-content: space-between;
+  }
+
+  .margin-container {
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 5%;
+    border-style: dotted;
+    border-color: white;
+    border-width: 2px;
+    padding: 0.5em;
+    align-items: stretch;
+    align-content: stretch;
+  }
+
+  .background-container {
+    background-color: #009999;
+    padding: 1em;
+    border-radius: 5%;
+    max-width: 32%;
+    margin: 0.6em 0;
+    padding: 0.5em;
+    align-items: stretch;
+    align-content: stretch;
+  }
+
+  .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: white;
+    max-height: auto;
+    margin: 0 auto;
+    padding: 0.3em 0.5em;
+    align-items: center;
+    border-radius: 8%;
+  }
+  .product-container:hover {
+    color: #9a2d9d;
+    font-family: "Lato-Black";
+  }
+  .product-container .product-img {
+    width: 70%;
+    height: auto;
+    border-radius: 5%;
+  }
+  .product-container .product-description {
+    padding: 1em 0 0;
+    border-top: 2px dotted #009999;
+    align-self: center;
+    text-align: center;
   }
 }
 /*
@@ -227,14 +341,32 @@
 /**********************************************************************************************************/
 /**********************************************************************************************************/
 /**********************************************************************************************************/
-@media only screen and (min-width: 300px) and (max-width: 768px) {
+@media only screen and (min-width: 300px) and (max-width: 1023px) {
   .my-footer {
     display: flex;
     align-items: flex-end;
     align-self: flex-end;
     align-content: flex-end;
     justify-content: flex-end;
-    width: 100%;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .logo-svg {
+    background-color: #9a2d9d;
+    width: 3em;
+    margin: 0 0.3em;
+    border-radius: 50%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .my-footer {
+    display: flex;
+    align-items: flex-end;
+    align-self: flex-end;
+    align-content: flex-end;
+    justify-content: flex-end;
+    max-width: 95%;
     margin-right: 0.6em;
   }
 
@@ -248,12 +380,12 @@
 /**********************************************************************************************************/
 /**********************************************************************************************************/
 /**********************************************************************************************************/
-@media only screen and (min-width: 300px) {
+@media only screen and (min-width: 300px) and (max-width: 1024px) {
   .aside {
     display: none;
   }
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1025px) {
   .aside {
     display: flex;
     padding-top: 2em;
