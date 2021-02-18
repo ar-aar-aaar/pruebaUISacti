@@ -20,12 +20,18 @@
   padding: 0;
 }
 
-body {
-  font-family: "Lato-Light";
-  color: #333;
-  padding: 0 8em;
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+  body {
+    font-family: "Lato-Light";
+    color: #333;
+    padding: 0;
+  }
 }
-
+@media only screen and (min-width: 768px) and (max-width: 1366px) {
+  body {
+    padding: 0 8em;
+  }
+}
 .main {
   display: flex;
 }
@@ -33,93 +39,212 @@ body {
 /**********************************************************************************************************/
 /**********************************************************************************************************/
 /**********************************************************************************************************/
-.logo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 2em 0 1em;
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+  header {
+    max-width: 95%;
+    padding: 0;
+    margin: 1em auto;
+    align-items: center;
+  }
+  header .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  header .logo-container .logo-empresa {
+    max-width: 95%;
+    height: auto;
+  }
+  header .my-nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap-reverse;
+    list-style-type: none;
+    margin: 1em 0;
+    padding: 0;
+  }
+  header .my-nav li {
+    border-right: 1px solid #009999;
+    padding: 0 0.2em;
+    margin: 0.8em 0;
+  }
+  header .my-nav li:last-child {
+    border-right: none;
+  }
+  header .my-nav li a {
+    color: #333;
+    text-decoration: none;
+    font-family: "Lato-Light";
+    padding: 0.2em 0.2em;
+  }
+  header .my-nav li a:hover {
+    color: #009999;
+    font-family: "Lato-Black";
+  }
 }
-.logo-container .logo-empresa {
-  width: auto;
-  height: 5.5em;
+/*
+.logo-container{
+    @include basic-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em 0 1em;
+    .logo-empresa{            
+        width: auto;
+        height: 5.5em;
+    }
 }
 
-.my-nav {
-  display: flex;
-  justify-content: flex-end;
-  flex-wrap: wrap-reverse;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.my-nav li {
-  border-right: 1px solid #009999;
-  padding: 0;
-  margin: 0;
-}
-.my-nav li:last-child {
-  border-right: none;
-}
-.my-nav li a {
-  color: #333;
-  text-decoration: none;
-  font-family: "Lato-Light";
-  padding: 0.2em 1em;
-}
-.my-nav li a:hover {
-  color: #009999;
-  font-family: "Lato-Black";
+.my-nav{
+    @include basic-flex;
+    justify-content: flex-end;
+    flex-wrap: wrap-reverse;
+    list-style-type: none;
+    margin:0;
+    padding:0;
+
+    li{
+        border-right: 1px solid $verde;
+        padding: 0;
+        margin: 0;
+
+        &:last-child{
+            border-right: none;
+        }
+        a{
+            color:$texto;
+            text-decoration: none;
+            font-family: 'Lato-Light';
+            padding: .2em 1em;
+
+            &:hover{
+                @include hover-verde;
+            }
+        }
+    }
 }
 
+*/
 /**********************************************************************************************************/
 /**********************************************************************************************************/
 /**********************************************************************************************************/
-.layout {
-  display: flex;
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+  .layout {
+    display: flex;
+  }
+
+  .main-footer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .catalog {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .background-container {
+    background-color: #009999;
+    padding: 1em;
+    border-radius: 5%;
+    max-width: 95%;
+    margin: 0.6em auto;
+  }
+
+  .product-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-color: white;
+    max-height: auto;
+    margin: 0 auto;
+    padding: 0.3em 0.1em;
+    align-items: center;
+    border-radius: 8%;
+    outline: 2px dotted white;
+    outline-offset: 0.4em;
+  }
+  .product-container:hover {
+    color: #9a2d9d;
+    font-family: "Lato-Black";
+  }
+  .product-container .product-img {
+    max-width: 65%;
+    height: auto;
+    border-radius: 5%;
+  }
+  .product-container .product-description {
+    align-self: center;
+  }
+}
+/*
+.layout{
+    @include basic-flex;
+
+}
+.main-footer{
+    @include basic-flex;
+    flex-wrap: wrap;
+}
+.catalog{
+    @include basic-flex;
+    flex-wrap: wrap;
+    padding: 2em 0;
 }
 
-.main-footer {
-  display: flex;
-  flex-wrap: wrap;
-}
+.product-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 20em;
+    max-height: 20em;
+    align-items: center;
+    margin: 0 .5em;
+    padding: 0 .5em .2em;
+    border: 1em solid $verde;
+    border-radius: 10%;
+    outline: 2px dotted white;
+    outline-offset: -.8em;
 
-.catalog {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 2em 0;
-}
+    &:hover{        
+        @include hover-morado;
+    }
+    .product-img{
+        @include img-resize-catalog;
+        margin: 0 1em .2em;  
+    }
+    .product-description{
+        align-self: center;
+        text-align: center;
+        border-top: .15em dotted $verde;
+        padding-top: 1em;
+        padding-bottom: .1em;
+    }
 
-.product-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 20em;
-  max-height: 20em;
-  align-items: center;
-  margin: 0 0.5em;
-  padding: 0 0.5em 0.2em;
-  border: 1em solid #009999;
-  border-radius: 10%;
-  outline: 2px dotted white;
-  outline-offset: -0.8em;
 }
-.product-container:hover {
-  color: #9a2d9d;
-  font-family: "Lato-Black";
-}
-.product-container .product-img {
-  width: 10em;
-  height: auto;
-  margin: 0 1em 0.2em;
-}
-.product-container .product-description {
-  align-self: center;
-  text-align: center;
-  border-top: 0.15em dotted #009999;
-  padding-top: 1em;
-  padding-bottom: 0.1em;
-}
+*/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+  .my-footer {
+    display: flex;
+    align-items: flex-end;
+    align-self: flex-end;
+    align-content: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: 0.6em;
+  }
 
+  .logo-svg {
+    background-color: #9a2d9d;
+    width: 3em;
+    margin: 0 0.3em;
+    border-radius: 50%;
+  }
+}
 /**********************************************************************************************************/
 /**********************************************************************************************************/
 /**********************************************************************************************************/
@@ -128,7 +253,7 @@ body {
     display: none;
   }
 }
-@media only screen and (min-width: 1366px) {
+@media only screen and (min-width: 769px) {
   .aside {
     display: flex;
     padding-top: 2em;
@@ -170,17 +295,10 @@ body {
 /**********************************************************************************************************/
 /**********************************************************************************************************/
 /**********************************************************************************************************/
-.my-footer {
-  display: flex;
-  align-items: flex-end;
-  align-self: flex-end;
-  justify-content: flex-end;
-}
-
-.logo-svg {
-  background-color: #9a2d9d;
-  width: 3em;
-  border-radius: 50%;
+@media only screen and (min-width: 300px) {
+  .fixed-img {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
