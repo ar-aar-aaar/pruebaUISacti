@@ -56,14 +56,19 @@ $desktop3: 1400px;
     height: auto;
 }
 
+@mixin img-resize-fixed {
+    width: 7em;
+    height: auto;
+}
+
 @mixin hover-morado{
     color: $morado;
     font-family: 'Lato-Black';
 }
 
 @mixin hover-verde {
-    color: $verde;
-    font-family: 'Lato-Black';    
+    color: $verde;    
+    font-family: 'Lato-Black';
 }
 
 /**********************************************************************************************************/
@@ -83,16 +88,22 @@ $desktop3: 1400px;
 }
 @media only screen and (min-width:$desktop1) and (max-width:($desktop3)-1){
     body{
+        @include basic-body;
         padding: 0 8em;
     }
 }
 @media only screen and (min-width:$desktop3){
     body{
+        @include basic-body;
         padding: 0 12em;
     }
 }
 .main{
     @include basic-flex;
+}
+
+.hidden{
+    display:none;
 }
 
 /**********************************************************************************************************/
@@ -176,6 +187,7 @@ $desktop3: 1400px;
                     color:$texto;
                     text-decoration: none;
                     font-family: 'Lato-Light';
+                    font-size: .9em;
                     padding: .2em .2em;    
                     &:hover{
                         @include hover-verde;
@@ -186,48 +198,49 @@ $desktop3: 1400px;
     }
 }
 
-/*
-.logo-container{
-    @include basic-flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2em 0 1em;
-    .logo-empresa{            
-        width: auto;
-        height: 5.5em;
+@media only screen and (min-width:$desktop1){
+    header{
+        margin-bottom: 1em;
     }
-}
-
-.my-nav{
-    @include basic-flex;
-    justify-content: flex-end;
-    flex-wrap: wrap-reverse;
-    list-style-type: none;
-    margin:0;
-    padding:0;
-
-    li{
-        border-right: 1px solid $verde;
-        padding: 0;
-        margin: 0;
-
-        &:last-child{
-            border-right: none;
+    .logo-container{
+        @include basic-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2em 0 1em;
+        .logo-empresa{            
+            width: auto;
+            height: 8%;
         }
-        a{
-            color:$texto;
-            text-decoration: none;
-            font-family: 'Lato-Light';
-            padding: .2em 1em;
-
-            &:hover{
-                @include hover-verde;
+    }
+    
+    .my-nav{
+        @include basic-flex;
+        justify-content: flex-end;
+        list-style-type: none;
+        margin:0;
+        padding:0;
+    
+        li{
+            border-right: 1px solid $verde;
+            padding: 0;
+            margin: 0;
+    
+            &:last-child{
+                border-right: none;
+            }
+            a{
+                color:$texto;
+                text-decoration: none;
+                font-family: 'Lato-Light';
+                padding: .2em .5em;
+    
+                &:hover{
+                    @include hover-verde;
+                }
             }
         }
-    }
+    }    
 }
-
-*/
 
 /**********************************************************************************************************/
 /**********************************************************************************************************/
@@ -252,6 +265,16 @@ $desktop3: 1400px;
         margin: 0 auto;
     }
 
+    .margin-container{
+        background-color: rgba($color: white, $alpha: 0);
+        border-radius: 5%;
+        border-style: dotted;
+        border-color: white;
+        border-width: 2px;
+        padding: .5em;
+        align-items: stretch;
+        align-content: stretch;
+    }
     .background-container{
         background-color: $verde;
         padding: 1em;
@@ -269,8 +292,6 @@ $desktop3: 1400px;
         padding: .3em .1em;
         align-items: center;
         border-radius: 8%;
-        outline: 2px dotted white;
-        outline-offset: .4em;
     
         &:hover{        
             @include hover-morado;
@@ -351,52 +372,141 @@ $desktop3: 1400px;
 
 }
 
-/*
-.layout{
-    @include basic-flex;
-
-}
-.main-footer{
-    @include basic-flex;
-    flex-wrap: wrap;
-}
-.catalog{
-    @include basic-flex;
-    flex-wrap: wrap;
-    padding: 2em 0;
-}
-
-.product-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 20em;
-    max-height: 20em;
-    align-items: center;
-    margin: 0 .5em;
-    padding: 0 .5em .2em;
-    border: 1em solid $verde;
-    border-radius: 10%;
-    outline: 2px dotted white;
-    outline-offset: -.8em;
-
-    &:hover{        
-        @include hover-morado;
+@media only screen and (min-width:$desktop1) and (max-width:($desktop3)-1){
+    .layout{
+        @include basic-flex;
     }
-    .product-img{
-        @include img-resize-catalog;
-        margin: 0 1em .2em;  
-    }
-    .product-description{
-        align-self: center;
-        text-align: center;
-        border-top: .15em dotted $verde;
+    .main-footer{
+        @include basic-flex;
+        flex-wrap: wrap;
         padding-top: 1em;
-        padding-bottom: .1em;
+    }
+    .catalog{
+        @include basic-flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        max-width: 95%;
+        justify-content: space-around;
+    }
+
+    .margin-container{
+        background-color: rgba($color: white, $alpha: 0);
+        height: 100%;
+        border-radius: 10%;
+        border-style: dotted;
+        border-color: white;
+        border-width: 2px;
+        padding: .5em;
+        align-items: stretch;
+        align-content: stretch;
+    }
+
+    .background-container{
+        background-color: $verde;
+        padding: 1em;
+        border-radius: 10%;
+        max-width: 32%;
+        margin:.6em 0;
+        padding:.5em;
+        align-items: stretch;
+        align-content: stretch;
+    }
+    .product-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: white;
+        max-height: auto;
+        margin: 0 auto;
+        padding: .3em .5em;
+        align-items: center;
+        border-radius: 10%;
+        height: 100%;
+    
+        &:hover{        
+            @include hover-morado;
+        }
+        .product-img{
+            @include img-resize-catalog-tablet;
+            border-radius: 10%;
+        }
+        .product-description{
+            padding: 1em 0 0;
+            border-top: 2px dotted $verde;
+            align-self: center;
+            text-align: center;
+        }
     }
 
 }
-*/
+
+@media only screen and (min-width:($desktop3)-1){
+    .layout{
+        @include basic-flex;
+    }
+    .main-footer{
+        @include basic-flex;
+        flex-wrap: wrap;
+        padding-top: 1em;
+    }
+    .catalog{
+        @include basic-flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        max-width: 95%;
+        justify-content: space-around;
+    }
+
+    .margin-container{
+        background-color: rgba($color: white, $alpha: 0);
+        height: 100%;
+        border-radius: 10%;
+        border-style: dotted;
+        border-color: white;
+        border-width: 2px;
+        padding: .5em;
+        align-items: stretch;
+        align-content: stretch;
+    }
+
+    .background-container{
+        background-color: $verde;
+        padding: 1em;
+        border-radius: 10%;
+        max-width: 32%;
+        margin:.6em 0;
+        padding:.5em;
+        align-items: stretch;
+        align-content: stretch;
+    }
+    .product-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: white;
+        max-height: auto;
+        margin: 0 auto;
+        padding: .3em .5em;
+        align-items: center;
+        border-radius: 10%;
+        height: 100%;
+    
+        &:hover{        
+            @include hover-morado;
+        }
+        .product-img{
+            @include img-resize-catalog-tablet;
+            border-radius: 10%;
+        }
+        .product-description{
+            padding: 1em 0 0;
+            border-top: 2px dotted $verde;
+            align-self: center;
+            text-align: center;
+        }
+    }
+
+}
 
 /**********************************************************************************************************/
 /**********************************************************************************************************/
@@ -404,6 +514,7 @@ $desktop3: 1400px;
 
 //Footer
 
+//Footer para mobile
 @media only screen and (min-width:$mobile) and (max-width:($desktop1)-1){
     .my-footer{
         @include basic-flex;
@@ -424,6 +535,7 @@ $desktop3: 1400px;
 
 }
 
+//Footer para desktop
 @media only screen and (min-width:$desktop1){
     .my-footer{
         @include basic-flex;
@@ -431,8 +543,8 @@ $desktop3: 1400px;
         align-self: flex-end;
         align-content:flex-end;
         justify-content: flex-end;
-        max-width: 95%;
-        margin-right: .6em;
+        width: 100%;
+        margin:0 auto;
     }
     
     .logo-svg{
@@ -448,8 +560,6 @@ $desktop3: 1400px;
 /**********************************************************************************************************/
 /**********************************************************************************************************/
 
-
-
 //Aside
 
 //Desaparecer para móviles
@@ -459,17 +569,39 @@ $desktop3: 1400px;
     }
 }
 
-//Aparecer para compu grandota
+//Aparecer para compu
 @media only screen and (min-width:($desktop1)+1){
     .aside{
         @include basic-flex;
-        padding-top: 2em;
+        padding-top: .5em;
+    }
+
+    .aside-background-container{
+        background-color: $morado;
+        border-radius: 10%;
+        max-width: 18em;
+        max-height: 15em;
+        padding:.5em;
+        margin-bottom: .5em;
+    }
+
+    .aside-margin-container{
+        background-color: rgba($color: white, $alpha: 0);
+        height: 100%;
+        border-radius: 10%;
+        border-style: solid;
+        border-color: white;
+        border-width: 1px;
+        padding: .1em;
+        align-items: stretch;
+        align-content: stretch;
     }
     
     .aside-container{
         display: flex;
         flex-wrap: wrap;
-        max-width: 25em;
+        height: 100%;
+        width: 100%;
         flex-direction: column;
     }
     
@@ -477,13 +609,11 @@ $desktop3: 1400px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        max-width: 18em;
-        max-height: 15em;
         align-items: center;
+        background-color: white;
+        border-radius: 10%;
         margin: .2em;
         padding: 0 1.5em .2em;
-        border: .8em solid $morado;
-        border-radius: 10%;
         &:hover{        
             @include hover-verde;
         }
@@ -493,7 +623,8 @@ $desktop3: 1400px;
         p{
             align-self: center;
             text-align: center;
-            font-size: .75em;
+            font-size: .6em;
+            font-family: 'Lato-Black';
         }
     
     }
@@ -506,8 +637,35 @@ $desktop3: 1400px;
 
 //Fixed image
 
-@media only screen and (min-width:$mobile){
+@media only screen and (min-width:$desktop1){
     .fixed-img{
-        display:none;
+        position: fixed;
+        max-width: 9em;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        right:1em;
+        top:1em;
+        border-width: 2px;
+        border-style: solid;
+        border-radius: 5%;
+        .product-img-fixed{
+            @include img-resize-fixed;
+        }
+        .img-description-fixed{
+            text-align: center;
+            font-size: .6em;
+        }
+    }
+
+    .image-from-main{
+        border-color: $verde;
+        color:$morado;
+    }
+    .image-from-aside{
+        border-color: $morado;
+        color:$verde
+
     }
 }
